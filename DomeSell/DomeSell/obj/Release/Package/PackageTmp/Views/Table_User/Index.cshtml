@@ -1,0 +1,112 @@
+﻿@model IEnumerable<DomeSell.Models.Table_User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.U_PassWord)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.U_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.U_LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.U_HBD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.U_Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.U_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.U_Tampo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.U_Amper)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.U_Province)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.U_Zipcode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Table_Role.R_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Table_TilieName.T_TilName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.U_PassWord)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.U_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.U_LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.U_HBD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.U_Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.U_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.U_Tampo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.U_Amper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.U_Province)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.U_Zipcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Table_Role.R_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Table_TilieName.T_TilName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.U_UserName }) |
+                @Html.ActionLink("Details", "Details", new { id = item.U_UserName }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.U_UserName })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(".alert").delay(2000).slideUp(200, function() {
+            $(this).alert('close');
+        });
+    </script>
+}

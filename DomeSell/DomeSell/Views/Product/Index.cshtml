@@ -1,0 +1,89 @@
+﻿@model IEnumerable<DomeSell.Models.Table_Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    if (TempData["action"] != null)
+    {
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="alert alert-dismissible @TempData["action"].ToString()">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>แจ้งเตือน!</strong><a href="#" class="alert-link">@TempData["message"].ToString()</a>
+                </div>
+            </div>
+        </div>
+    }
+    TempData["action"] = null;
+    TempData["message"] = null;
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">สินค้าเครื่องจักรสาน</div>
+    <div class="panel-body">
+        <p>
+            @Html.ActionLink("เพิ่มข้อมูล", "Create", null, new { @class = "btn btn-success" })
+        </p>
+        <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.P_ProductID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.P_ProName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.P_Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.P_Amout)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.P_Type)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.P_ProductID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.P_ProName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.P_Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.P_Amout)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Table_TypeProduct.T_Name)
+                        </td>
+                        <td style="text-align:center">
+                            @Html.ActionLink("แก้ไข", "Edit", null, new { id = item.P_ProductID }, new { @class = "btn btn-warning" })
+                            @Html.ActionLink("รายละเอียด", "Details", null, new { id = item.P_ProductID }, new { @class = "btn btn-info" })
+                            @Html.ActionLink("ลบข้อมูล", "Delete", null, new { id = item.P_ProductID }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(".alert").delay(2000).slideUp(200, function() {
+            $(this).alert('close');
+        });
+    </script>
+}

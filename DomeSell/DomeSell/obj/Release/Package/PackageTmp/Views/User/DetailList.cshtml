@@ -1,0 +1,65 @@
+﻿@model DomeSell.Models.Table_Product
+
+@{
+    ViewBag.Title = "DetailList";
+    Layout = "~/Views/Shared/_User.cshtml";
+    if (Session["Username"] == null)
+    {
+        <script type="text/javascript">
+            window.location.href = '@Url.Action("Index","User")';
+        </script>
+    }
+}
+
+<h2>DetailList</h2>
+
+<div>
+    <h4>Table_Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.P_ProName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.P_ProName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.P_Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.P_Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.P_IMG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.P_IMG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.P_Amout)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.P_Amout)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Table_TypeProduct.T_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Table_TypeProduct.T_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.P_ProductID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

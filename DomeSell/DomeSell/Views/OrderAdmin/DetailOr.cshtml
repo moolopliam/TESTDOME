@@ -1,0 +1,22 @@
+﻿@model DomeSell.Models.Table_Oder
+
+@{
+    ViewBag.Title = "DetailOr";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>หลักฐานการชำระเงิน</h2>
+
+<div>
+    <hr />
+    @if (Model.O_IMGPAY != null)
+    {
+        <img src="data:image/png;base64,@Convert.ToBase64String(Model.O_IMGPAY)" alt="" class="img-thumbnail center-block" style="height: 250px;width: 250px">
+    }
+    
+</div>
+<br/>
+<p>
+    @Html.ActionLink("ย้อนกลับ", "Index",null,new {@class = "btn btn-info"})
+</p>
+<br/>

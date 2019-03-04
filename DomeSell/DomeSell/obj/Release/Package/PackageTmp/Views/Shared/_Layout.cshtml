@@ -1,0 +1,111 @@
+﻿@{
+    if (Session["Rol"] == null)
+    {
+        <script type="text/javascript">
+            window.location.href = '@Url.Action("Login","User")';
+        </script>
+    }
+
+    if (Convert.ToInt32(Session["Rol"]) == 1)
+    {
+        <script type="text/javascript">
+            window.location.href = '@Url.Action("Index","User")';
+        </script>
+    }
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - สินค้าOTOP</title>
+
+    <link href="~/Content/bootstrapX.min.css" rel="stylesheet" />
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="https://fonts.googleapis.com/css?family=Charm:400,700&amp;subset=thai" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Charm:400,700" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Charm', cursive;
+        }
+        div {
+            font-family: 'Charm', cursive;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Charm', cursive;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">DOME_OTOP_ADMIN</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="@Url.Action("Index","Product")">สินค้า<span class="sr-only">(current)</span></a></li>
+                    <li><a href="@Url.Action("Index","AddProduct")">เพิ่มสินค้าเข้าคลัง</a></li>
+                    <li><a href="@Url.Action("Index","OrderAdmin")">ตรวจสอบการชำระเงิน</a></li>
+                    <li><a href="@Url.Action("Arrange","OrderAdmin")">รอการจัดส่ง</a></li>
+                    <li><a href="@Url.Action("Neat","OrderAdmin")">จัดส่งเรียบร้อย</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">จัดการข้อมูล <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="@Url.Action("Index","TypeProduct")">ประเภทสินค้า</a></li>
+                            <li><a href="@Url.Action("Index","Table_TilieName")">คำนำหน้าชื่อ</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">รายงาน <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="@Url.Action("Report2","Home")">การขาย</a></li>
+                            <li><a href="@Url.Action("Report1","Home")">สินค้าในสต๊อกอ</a></li>
+                            <li><a href="@Url.Action("Report4","Home")">สินค้าเข้าสต๊อก</a></li>
+                            <li><a href="@Url.Action("Report3","Home")">รายชื่อลูกค้า</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+                @*<form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>*@
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("Loguot","User")">ออกจากระบบ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <link href="~/Content/datatables.min.css" rel="stylesheet" />
+    <script src="~/Content/datatables.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#dtBasicExample').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
+    </script>
+
+</body>
+</html>

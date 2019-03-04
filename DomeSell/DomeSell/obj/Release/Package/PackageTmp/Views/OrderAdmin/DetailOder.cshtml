@@ -1,0 +1,89 @@
+﻿@model IEnumerable<DomeSell.Models.Table_OderDetail>
+
+@{
+    ViewBag.Title = "DetailOder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int? total = 0;
+    int? total1 = 0;
+    int? id = 0;
+    int? s = 0;
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">รายการซื้อสินค้า</div>
+    <div class="panel-body">
+        <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Table_Product.P_ProName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OD_Amount)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Table_Product.P_Price)
+                    </th>
+                    <th>
+                        @Html.DisplayName("ราคารวม")
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Table_Oder.O_Date)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Table_Product.P_ProName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OD_Amount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Table_Product.P_Price)
+                        </td>
+                        <td>
+                            @{
+                                total1 += (item.OD_Amount * item.Table_Product.P_Price);
+                                total = (item.OD_Amount * item.Table_Product.P_Price);
+                                id = item.OD_Oder;
+                                s = item.Table_Oder.O_Status;
+
+                            }
+                            @total
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Table_Oder.O_Date)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>ราคารวม</td>
+                    <td>@Model.Sum(a=>a.OD_Amount)</td>
+                    <td>@Model.Sum(a=>a.Table_Product.P_Price)</td>
+                    <td>@total1</td>
+                    <td>
+                        @if (s == 1)
+                        {
+                            @Html.ActionLink("ยืนยันการชำระ", "Confirm", "OrderAdmin", new {id = id}, new {@class = "btn btn-success"})
+                        }
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(".alert").delay(2000).slideUp(200, function () {
+            $(this).alert('close');
+        });
+    </script>
+}

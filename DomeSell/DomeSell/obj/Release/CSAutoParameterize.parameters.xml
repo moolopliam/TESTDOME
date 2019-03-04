@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="SellOTOP5929Entities-Web.config Connection String" description="SellOTOP5929Entities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.SellOTOP_MODEL.csdl|res://*/Models.SellOTOP_MODEL.ssdl|res://*/Models.SellOTOP_MODEL.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DESKTOP-8O45V40\SQLEXPRESS;initial catalog=SellOTOP5929;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\TAESOFREE\\Desktop\\DOME5929\\DomeSell\\DomeSell\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SellOTOP5929Entities']/@connectionString" />
+  </parameter>
+  <parameter name="SellOTOP5929ConnectionString-Web.config Connection String" description="SellOTOP5929ConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=DESKTOP-8O45V40\SQLEXPRESS;Initial Catalog=SellOTOP5929;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\TAESOFREE\\Desktop\\DOME5929\\DomeSell\\DomeSell\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SellOTOP5929ConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

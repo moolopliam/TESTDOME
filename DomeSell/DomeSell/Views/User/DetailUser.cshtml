@@ -1,0 +1,38 @@
+﻿@model DomeSell.Models.Table_User
+
+@{
+    ViewBag.Title = "DetailUser";
+    Layout = "~/Views/Shared/_User.cshtml";
+    if (Session["Username"] == null)
+    {
+        <script type="text/javascript">
+            window.location.href = '@Url.Action("Index","User")';
+        </script>
+    }
+}
+
+<h2>ข้อมูลส่วนตัว</h2>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        @if (Model.U_IMGUSER != null)
+        {
+            <img src="data:image/png;base64,@Convert.ToBase64String(Model.U_IMGUSER)" alt="" class="img-thumbnail">
+        }
+    </div>
+    <div class="col-md-4">
+        <b>ชื่อผู้ใช้</b> @Model.U_UserName
+        <hr/>
+        <b>ชื่อ</b> @Model.Table_TilieName.T_TilName @Model.U_Name @Model.U_LastName
+        <hr/>
+        <b>วันเกิด</b> @Model.U_HBD
+        <hr/>
+        <b>ที่อยู่</b> @Model.U_Address ตำบล @Model.U_Tampo อำเภอ @Model.U_Amper จังหวัด @Model.U_Province รหัสไปรษณ๊ย์ @Model.U_Zipcode
+        <hr/>
+        <b>เบอร์มือถือ</b> @Model.U_Phone
+    </div>
+</div>
+<p>
+    @Html.ActionLink("แก้ไขข้อมูลส่วนตัว", "ProfileUse", "User", null, new { @class = "btn btn-warning" })
+    @Html.ActionLink("ย้อนกลับ", "Index", null, new { @class = "btn btn-info" })
+</p>

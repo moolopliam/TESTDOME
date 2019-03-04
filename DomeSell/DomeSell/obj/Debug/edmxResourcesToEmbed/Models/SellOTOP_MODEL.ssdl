@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SellOTOP5929Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Table_AddProduct">
+    <Key>
+      <PropertyRef Name="A_AddProID" />
+    </Key>
+    <Property Name="A_AddProID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="A_Product" Type="int" />
+    <Property Name="A_amount" Type="int" />
+    <Property Name="A_date" Type="varchar" MaxLength="15" />
+    <Property Name="A_StatusAdd" Type="int" />
+  </EntityType>
+  <EntityType Name="Table_Oder">
+    <Key>
+      <PropertyRef Name="O_OderID" />
+    </Key>
+    <Property Name="O_OderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="O_Date" Type="varchar" MaxLength="10" />
+    <Property Name="O_User" Type="varchar" MaxLength="30" />
+    <Property Name="O_Total" Type="int" />
+    <Property Name="O_Status" Type="int" />
+    <Property Name="O_IMGPAY" Type="image" />
+  </EntityType>
+  <EntityType Name="Table_OderDetail">
+    <Key>
+      <PropertyRef Name="OD_OrderDetail" />
+    </Key>
+    <Property Name="OD_OrderDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OD_Oder" Type="int" />
+    <Property Name="OD_Amount" Type="int" />
+    <Property Name="OD_Product" Type="int" />
+  </EntityType>
+  <EntityType Name="Table_Product">
+    <Key>
+      <PropertyRef Name="P_ProductID" />
+    </Key>
+    <Property Name="P_ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="P_ProName" Type="varchar" MaxLength="50" />
+    <Property Name="P_Price" Type="int" />
+    <Property Name="P_IMG" Type="image" />
+    <Property Name="P_Amout" Type="int" />
+    <Property Name="P_Type" Type="int" />
+  </EntityType>
+  <EntityType Name="Table_Role">
+    <Key>
+      <PropertyRef Name="R_RoleID" />
+    </Key>
+    <Property Name="R_RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="R_Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Table_StatusAdd">
+    <Key>
+      <PropertyRef Name="SA_SatatusID" />
+    </Key>
+    <Property Name="SA_SatatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SA_StaName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Table_StatusBay">
+    <Key>
+      <PropertyRef Name="S_StatusID" />
+    </Key>
+    <Property Name="S_StatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="S_StaName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Table_TilieName">
+    <Key>
+      <PropertyRef Name="T_TItleID" />
+    </Key>
+    <Property Name="T_TItleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="T_TilName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Table_TypeProduct">
+    <Key>
+      <PropertyRef Name="T_TypeProID" />
+    </Key>
+    <Property Name="T_TypeProID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="T_Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Table_User">
+    <Key>
+      <PropertyRef Name="U_UserName" />
+    </Key>
+    <Property Name="U_UserName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="U_PassWord" Type="varchar" MaxLength="30" />
+    <Property Name="U_Tilie" Type="int" />
+    <Property Name="U_Name" Type="varchar" MaxLength="30" />
+    <Property Name="U_LastName" Type="varchar" MaxLength="30" />
+    <Property Name="U_HBD" Type="varchar" MaxLength="15" />
+    <Property Name="U_Phone" Type="varchar" MaxLength="10" />
+    <Property Name="U_Address" Type="varchar" MaxLength="60" />
+    <Property Name="U_Tampo" Type="varchar" MaxLength="60" />
+    <Property Name="U_Amper" Type="varchar" MaxLength="60" />
+    <Property Name="U_Province" Type="varchar" MaxLength="60" />
+    <Property Name="U_Zipcode" Type="varchar" MaxLength="60" />
+    <Property Name="U_Role" Type="int" />
+    <Property Name="U_IMGUSER" Type="image" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SellOTOP5929.dbo.View_AddPro' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_AddPro">
+    <Key>
+      <PropertyRef Name="A_AddProID" />
+      <PropertyRef Name="P_ProductID" />
+    </Key>
+    <Property Name="A_AddProID" Type="int" Nullable="false" />
+    <Property Name="A_Product" Type="int" />
+    <Property Name="P_ProductID" Type="int" Nullable="false" />
+    <Property Name="P_ProName" Type="varchar" MaxLength="50" />
+    <Property Name="A_amount" Type="int" />
+    <Property Name="A_date" Type="varchar" MaxLength="15" />
+    <Property Name="A_StatusAdd" Type="int" />
+    <Property Name="P_Price" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SellOTOP5929.dbo.View_BayOr' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_BayOr">
+    <Key>
+      <PropertyRef Name="O_OderID" />
+      <PropertyRef Name="OD_OrderDetail" />
+      <PropertyRef Name="P_ProductID" />
+    </Key>
+    <Property Name="O_OderID" Type="int" Nullable="false" />
+    <Property Name="O_Date" Type="varchar" MaxLength="10" />
+    <Property Name="O_User" Type="varchar" MaxLength="30" />
+    <Property Name="O_Total" Type="int" />
+    <Property Name="O_Status" Type="int" />
+    <Property Name="OD_OrderDetail" Type="int" Nullable="false" />
+    <Property Name="OD_Oder" Type="int" />
+    <Property Name="OD_Amount" Type="int" />
+    <Property Name="OD_Product" Type="int" />
+    <Property Name="P_ProductID" Type="int" Nullable="false" />
+    <Property Name="P_ProName" Type="varchar" MaxLength="50" />
+    <Property Name="P_Price" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SellOTOP5929.dbo.View_Product' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_Product">
+    <Key>
+      <PropertyRef Name="P_ProductID" />
+      <PropertyRef Name="T_TypeProID" />
+    </Key>
+    <Property Name="P_ProductID" Type="int" Nullable="false" />
+    <Property Name="P_ProName" Type="varchar" MaxLength="50" />
+    <Property Name="P_Price" Type="int" />
+    <Property Name="P_IMG" Type="image" />
+    <Property Name="P_Amout" Type="int" />
+    <Property Name="P_Type" Type="int" />
+    <Property Name="T_TypeProID" Type="int" Nullable="false" />
+    <Property Name="T_Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SellOTOP5929.dbo.View_User' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_User">
+    <Key>
+      <PropertyRef Name="U_UserName" />
+      <PropertyRef Name="T_TItleID" />
+      <PropertyRef Name="R_RoleID" />
+    </Key>
+    <Property Name="U_UserName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="U_Tilie" Type="int" />
+    <Property Name="T_TItleID" Type="int" Nullable="false" />
+    <Property Name="T_TilName" Type="varchar" MaxLength="50" />
+    <Property Name="U_Name" Type="varchar" MaxLength="30" />
+    <Property Name="U_LastName" Type="varchar" MaxLength="30" />
+    <Property Name="U_HBD" Type="varchar" MaxLength="15" />
+    <Property Name="U_Phone" Type="varchar" MaxLength="10" />
+    <Property Name="U_Address" Type="varchar" MaxLength="60" />
+    <Property Name="U_Tampo" Type="varchar" MaxLength="60" />
+    <Property Name="U_Amper" Type="varchar" MaxLength="60" />
+    <Property Name="U_Province" Type="varchar" MaxLength="60" />
+    <Property Name="U_Zipcode" Type="varchar" MaxLength="60" />
+    <Property Name="U_Role" Type="int" />
+    <Property Name="R_RoleID" Type="int" Nullable="false" />
+    <Property Name="R_Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Table_AddProduct_Table_Product">
+    <End Role="Table_Product" Type="Self.Table_Product" Multiplicity="0..1" />
+    <End Role="Table_AddProduct" Type="Self.Table_AddProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Product">
+        <PropertyRef Name="P_ProductID" />
+      </Principal>
+      <Dependent Role="Table_AddProduct">
+        <PropertyRef Name="A_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_AddProduct_Table_StatusAdd">
+    <End Role="Table_StatusAdd" Type="Self.Table_StatusAdd" Multiplicity="0..1" />
+    <End Role="Table_AddProduct" Type="Self.Table_AddProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_StatusAdd">
+        <PropertyRef Name="SA_SatatusID" />
+      </Principal>
+      <Dependent Role="Table_AddProduct">
+        <PropertyRef Name="A_StatusAdd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Oder_Table_StatusBay">
+    <End Role="Table_StatusBay" Type="Self.Table_StatusBay" Multiplicity="0..1" />
+    <End Role="Table_Oder" Type="Self.Table_Oder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_StatusBay">
+        <PropertyRef Name="S_StatusID" />
+      </Principal>
+      <Dependent Role="Table_Oder">
+        <PropertyRef Name="O_Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Oder_Table_User">
+    <End Role="Table_User" Type="Self.Table_User" Multiplicity="0..1" />
+    <End Role="Table_Oder" Type="Self.Table_Oder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_User">
+        <PropertyRef Name="U_UserName" />
+      </Principal>
+      <Dependent Role="Table_Oder">
+        <PropertyRef Name="O_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_OderDetail_Table_Oder">
+    <End Role="Table_Oder" Type="Self.Table_Oder" Multiplicity="0..1" />
+    <End Role="Table_OderDetail" Type="Self.Table_OderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Oder">
+        <PropertyRef Name="O_OderID" />
+      </Principal>
+      <Dependent Role="Table_OderDetail">
+        <PropertyRef Name="OD_Oder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_OderDetail_Table_Product">
+    <End Role="Table_Product" Type="Self.Table_Product" Multiplicity="0..1" />
+    <End Role="Table_OderDetail" Type="Self.Table_OderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Product">
+        <PropertyRef Name="P_ProductID" />
+      </Principal>
+      <Dependent Role="Table_OderDetail">
+        <PropertyRef Name="OD_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Product_Table_TypeProduct">
+    <End Role="Table_TypeProduct" Type="Self.Table_TypeProduct" Multiplicity="0..1" />
+    <End Role="Table_Product" Type="Self.Table_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_TypeProduct">
+        <PropertyRef Name="T_TypeProID" />
+      </Principal>
+      <Dependent Role="Table_Product">
+        <PropertyRef Name="P_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_User_Table_Role">
+    <End Role="Table_Role" Type="Self.Table_Role" Multiplicity="0..1" />
+    <End Role="Table_User" Type="Self.Table_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Role">
+        <PropertyRef Name="R_RoleID" />
+      </Principal>
+      <Dependent Role="Table_User">
+        <PropertyRef Name="U_Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_User_Table_TilieName">
+    <End Role="Table_TilieName" Type="Self.Table_TilieName" Multiplicity="0..1" />
+    <End Role="Table_User" Type="Self.Table_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_TilieName">
+        <PropertyRef Name="T_TItleID" />
+      </Principal>
+      <Dependent Role="Table_User">
+        <PropertyRef Name="U_Tilie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SellOTOP5929ModelStoreContainer">
+    <EntitySet Name="Table_AddProduct" EntityType="Self.Table_AddProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_Oder" EntityType="Self.Table_Oder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_OderDetail" EntityType="Self.Table_OderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_Product" EntityType="Self.Table_Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_Role" EntityType="Self.Table_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_StatusAdd" EntityType="Self.Table_StatusAdd" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_StatusBay" EntityType="Self.Table_StatusBay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_TilieName" EntityType="Self.Table_TilieName" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_TypeProduct" EntityType="Self.Table_TypeProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_User" EntityType="Self.Table_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="View_AddPro" EntityType="Self.View_AddPro" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_AddPro].[A_AddProID] AS [A_AddProID], 
+    [View_AddPro].[A_Product] AS [A_Product], 
+    [View_AddPro].[P_ProductID] AS [P_ProductID], 
+    [View_AddPro].[P_ProName] AS [P_ProName], 
+    [View_AddPro].[A_amount] AS [A_amount], 
+    [View_AddPro].[A_date] AS [A_date], 
+    [View_AddPro].[A_StatusAdd] AS [A_StatusAdd], 
+    [View_AddPro].[P_Price] AS [P_Price]
+    FROM [dbo].[View_AddPro] AS [View_AddPro]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_BayOr" EntityType="Self.View_BayOr" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_BayOr].[O_OderID] AS [O_OderID], 
+    [View_BayOr].[O_Date] AS [O_Date], 
+    [View_BayOr].[O_User] AS [O_User], 
+    [View_BayOr].[O_Total] AS [O_Total], 
+    [View_BayOr].[O_Status] AS [O_Status], 
+    [View_BayOr].[OD_OrderDetail] AS [OD_OrderDetail], 
+    [View_BayOr].[OD_Oder] AS [OD_Oder], 
+    [View_BayOr].[OD_Amount] AS [OD_Amount], 
+    [View_BayOr].[OD_Product] AS [OD_Product], 
+    [View_BayOr].[P_ProductID] AS [P_ProductID], 
+    [View_BayOr].[P_ProName] AS [P_ProName], 
+    [View_BayOr].[P_Price] AS [P_Price]
+    FROM [dbo].[View_BayOr] AS [View_BayOr]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_Product" EntityType="Self.View_Product" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Product].[P_ProductID] AS [P_ProductID], 
+    [View_Product].[P_ProName] AS [P_ProName], 
+    [View_Product].[P_Price] AS [P_Price], 
+    [View_Product].[P_IMG] AS [P_IMG], 
+    [View_Product].[P_Amout] AS [P_Amout], 
+    [View_Product].[P_Type] AS [P_Type], 
+    [View_Product].[T_TypeProID] AS [T_TypeProID], 
+    [View_Product].[T_Name] AS [T_Name]
+    FROM [dbo].[View_Product] AS [View_Product]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_User" EntityType="Self.View_User" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_User].[U_UserName] AS [U_UserName], 
+    [View_User].[U_Tilie] AS [U_Tilie], 
+    [View_User].[T_TItleID] AS [T_TItleID], 
+    [View_User].[T_TilName] AS [T_TilName], 
+    [View_User].[U_Name] AS [U_Name], 
+    [View_User].[U_LastName] AS [U_LastName], 
+    [View_User].[U_HBD] AS [U_HBD], 
+    [View_User].[U_Phone] AS [U_Phone], 
+    [View_User].[U_Address] AS [U_Address], 
+    [View_User].[U_Tampo] AS [U_Tampo], 
+    [View_User].[U_Amper] AS [U_Amper], 
+    [View_User].[U_Province] AS [U_Province], 
+    [View_User].[U_Zipcode] AS [U_Zipcode], 
+    [View_User].[U_Role] AS [U_Role], 
+    [View_User].[R_RoleID] AS [R_RoleID], 
+    [View_User].[R_Name] AS [R_Name]
+    FROM [dbo].[View_User] AS [View_User]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Table_AddProduct_Table_Product" Association="Self.FK_Table_AddProduct_Table_Product">
+      <End Role="Table_Product" EntitySet="Table_Product" />
+      <End Role="Table_AddProduct" EntitySet="Table_AddProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_AddProduct_Table_StatusAdd" Association="Self.FK_Table_AddProduct_Table_StatusAdd">
+      <End Role="Table_StatusAdd" EntitySet="Table_StatusAdd" />
+      <End Role="Table_AddProduct" EntitySet="Table_AddProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Oder_Table_StatusBay" Association="Self.FK_Table_Oder_Table_StatusBay">
+      <End Role="Table_StatusBay" EntitySet="Table_StatusBay" />
+      <End Role="Table_Oder" EntitySet="Table_Oder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Oder_Table_User" Association="Self.FK_Table_Oder_Table_User">
+      <End Role="Table_User" EntitySet="Table_User" />
+      <End Role="Table_Oder" EntitySet="Table_Oder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_OderDetail_Table_Oder" Association="Self.FK_Table_OderDetail_Table_Oder">
+      <End Role="Table_Oder" EntitySet="Table_Oder" />
+      <End Role="Table_OderDetail" EntitySet="Table_OderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_OderDetail_Table_Product" Association="Self.FK_Table_OderDetail_Table_Product">
+      <End Role="Table_Product" EntitySet="Table_Product" />
+      <End Role="Table_OderDetail" EntitySet="Table_OderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Product_Table_TypeProduct" Association="Self.FK_Table_Product_Table_TypeProduct">
+      <End Role="Table_TypeProduct" EntitySet="Table_TypeProduct" />
+      <End Role="Table_Product" EntitySet="Table_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_User_Table_Role" Association="Self.FK_Table_User_Table_Role">
+      <End Role="Table_Role" EntitySet="Table_Role" />
+      <End Role="Table_User" EntitySet="Table_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_User_Table_TilieName" Association="Self.FK_Table_User_Table_TilieName">
+      <End Role="Table_TilieName" EntitySet="Table_TilieName" />
+      <End Role="Table_User" EntitySet="Table_User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

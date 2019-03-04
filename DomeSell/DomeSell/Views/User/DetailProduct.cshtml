@@ -1,0 +1,66 @@
+﻿@model DomeSell.Models.Table_Product
+
+@{
+    ViewBag.Title = "DetailProduct";
+    Layout = "~/Views/Shared/_User.cshtml";
+    if (Session["Username"] == null)
+    {
+        <script type="text/javascript">
+            window.location.href = '@Url.Action("Index", "User")';
+        </script>
+    }
+}
+@{
+    if (TempData["action"] != null)
+    {
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="alert alert-dismissible alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>แจ้งเตือน!</strong><a href="#" class="alert-link">@TempData["action"].ToString()</a>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+@using (Html.BeginForm("Bag", "User", FormMethod.Post,
+    new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body" style="text-align: center">
+                    @if (Model.P_IMG != null)
+                    {
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.P_IMG)" alt="" class="img-thumbnail">
+                    }
+                    <h1 class="card-title">@Html.DisplayFor(model => model.P_ProName)</h1>
+                    <p class="card-text">ประเภทสินค้า : @Html.DisplayFor(model => model.Table_TypeProduct.T_Name)</p>
+                    <p class="card-text">ราคา : @Html.DisplayFor(model => model.P_Price) บาท</p>
+                    <input readonly="readonly" name="id" value="@Model.P_ProductID" type="hidden" />
+                    <div class="form-group col-md-3">
+                        <input class="form-control" type="number" value="1" name="amount" />
+                    </div>
+                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                        <button type="submit" class="btn btn-success">หยิบใส่ตะกร้า</button>
+                        <button type="button" class="btn btn-primary">ย้อนกลับ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(".alert").delay(2000).slideUp(200, function () {
+            $(this).alert('close');
+        });
+    </script>
+}

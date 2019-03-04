@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SellOTOP5929ModelStoreContainer" CdmEntityContainer="SellOTOP5929Entities">
+    <EntitySetMapping Name="Table_AddProduct">
+      <EntityTypeMapping TypeName="SellOTOP5929Model.Table_AddProduct">
+        <MappingFragment StoreEntitySet="Table_AddProduct">
+          <ScalarProperty Name="A_StatusAdd" ColumnName="A_StatusAdd" />
+          <ScalarProperty Name="A_date" ColumnName="A_date" />
+          <ScalarProperty Name="A_amount" ColumnName="A_amount" />
+          <ScalarProperty Name="A_Product" ColumnName="A_Product" />
+          <ScalarProperty Name="A_AddProID" ColumnName="A_AddProID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Oder">
+      <EntityTypeMapping TypeName="SellOTOP5929Model.Table_Oder">
+        <MappingFragment StoreEntitySet="Table_Oder">
+          <ScalarProperty Name="O_IMGPAY" ColumnName="O_IMGPAY" />
+          <ScalarProperty Name="O_Status" ColumnName="O_Status" />
+          <ScalarProperty Name="O_Total" ColumnName="O_Total" />
+          <ScalarProperty Name="O_User" ColumnName="O_User" />
+          <ScalarProperty Name="O_Date" ColumnName="O_Date" />
+          <ScalarProperty Name="O_OderID" ColumnName="O_OderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_OderDetail">
+      <EntityTypeMapping TypeName="SellOTOP5929Model.Table_OderDetail">
+        <MappingFragment StoreEntitySet="Table_OderDetail">
+          <ScalarProperty Name="OD_Product" ColumnName="OD_Product" />
+          <ScalarProperty Name="OD_Amount" ColumnName="OD_Amount" />
+          <ScalarProperty Name="OD_Oder" ColumnName="OD_Oder" />
+          <ScalarProperty Name="OD_OrderDetail" ColumnName="OD_OrderDetail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Product">
+      <EntityTypeMapping TypeName="SellOTOP5929Model.Table_Product">
+        <MappingFragment StoreEntitySet="Table_Product">
+          <ScalarProperty Name="P_Type" ColumnName="P_Type" />
+          <ScalarProperty Name="P_Amout" ColumnName="P_Amout" />
+          <ScalarProperty Name="P_IMG" ColumnName="P_IMG" />
+          <ScalarProperty Name="P_Price" ColumnName="P_Price" />
+          <ScalarProperty Name="P_ProName" ColumnName="P_ProName" />
+          <ScalarProperty Name="P_ProductID" ColumnName="P_ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_Role">
+      <EntityTypeMapping TypeName="SellOTOP5929Model.Table_Role">
+        <MappingFragment StoreEntitySet="Table_Role">
+          <ScalarProperty Name="R_Name" ColumnName="R_Name" />
+          <ScalarProperty Name="R_RoleID" ColumnName="R_RoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_StatusAdd">
+      <EntityTypeMapping TypeName="SellOTOP5929Model.Table_StatusAdd">
+        <MappingFragment StoreEntitySet="Table_StatusAdd">
+          <ScalarProperty Name="SA_StaName" ColumnName="SA_StaName" />
+          <ScalarProperty Name="SA_SatatusID" ColumnName="SA_SatatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_StatusBay">
+      <EntityTypeMapping TypeName="SellOTOP5929Model.Table_StatusBay">
+        <MappingFragment StoreEntitySet="Table_StatusBay">
+          <ScalarProperty Name="S_StaName" ColumnName="S_StaName" />
+          <ScalarProperty Name="S_StatusID" ColumnName="S_StatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_TilieName">
+      <EntityTypeMapping TypeName="SellOTOP5929Model.Table_TilieName">
+        <MappingFragment StoreEntitySet="Table_TilieName">
+          <ScalarProperty Name="T_TilName" ColumnName="T_TilName" />
+          <ScalarProperty Name="T_TItleID" ColumnName="T_TItleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_TypeProduct">
+      <EntityTypeMapping TypeName="SellOTOP5929Model.Table_TypeProduct">
+        <MappingFragment StoreEntitySet="Table_TypeProduct">
+          <ScalarProperty Name="T_Name" ColumnName="T_Name" />
+          <ScalarProperty Name="T_TypeProID" ColumnName="T_TypeProID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table_User">
+      <EntityTypeMapping TypeName="SellOTOP5929Model.Table_User">
+        <MappingFragment StoreEntitySet="Table_User">
+          <ScalarProperty Name="U_IMGUSER" ColumnName="U_IMGUSER" />
+          <ScalarProperty Name="U_Role" ColumnName="U_Role" />
+          <ScalarProperty Name="U_Zipcode" ColumnName="U_Zipcode" />
+          <ScalarProperty Name="U_Province" ColumnName="U_Province" />
+          <ScalarProperty Name="U_Amper" ColumnName="U_Amper" />
+          <ScalarProperty Name="U_Tampo" ColumnName="U_Tampo" />
+          <ScalarProperty Name="U_Address" ColumnName="U_Address" />
+          <ScalarProperty Name="U_Phone" ColumnName="U_Phone" />
+          <ScalarProperty Name="U_HBD" ColumnName="U_HBD" />
+          <ScalarProperty Name="U_LastName" ColumnName="U_LastName" />
+          <ScalarProperty Name="U_Name" ColumnName="U_Name" />
+          <ScalarProperty Name="U_Tilie" ColumnName="U_Tilie" />
+          <ScalarProperty Name="U_PassWord" ColumnName="U_PassWord" />
+          <ScalarProperty Name="U_UserName" ColumnName="U_UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_AddPro">
+      <EntityTypeMapping TypeName="SellOTOP5929Model.View_AddPro">
+        <MappingFragment StoreEntitySet="View_AddPro">
+          <ScalarProperty Name="P_Price" ColumnName="P_Price" />
+          <ScalarProperty Name="A_StatusAdd" ColumnName="A_StatusAdd" />
+          <ScalarProperty Name="A_date" ColumnName="A_date" />
+          <ScalarProperty Name="A_amount" ColumnName="A_amount" />
+          <ScalarProperty Name="P_ProName" ColumnName="P_ProName" />
+          <ScalarProperty Name="P_ProductID" ColumnName="P_ProductID" />
+          <ScalarProperty Name="A_Product" ColumnName="A_Product" />
+          <ScalarProperty Name="A_AddProID" ColumnName="A_AddProID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_BayOr">
+      <EntityTypeMapping TypeName="SellOTOP5929Model.View_BayOr">
+        <MappingFragment StoreEntitySet="View_BayOr">
+          <ScalarProperty Name="P_Price" ColumnName="P_Price" />
+          <ScalarProperty Name="P_ProName" ColumnName="P_ProName" />
+          <ScalarProperty Name="P_ProductID" ColumnName="P_ProductID" />
+          <ScalarProperty Name="OD_Product" ColumnName="OD_Product" />
+          <ScalarProperty Name="OD_Amount" ColumnName="OD_Amount" />
+          <ScalarProperty Name="OD_Oder" ColumnName="OD_Oder" />
+          <ScalarProperty Name="OD_OrderDetail" ColumnName="OD_OrderDetail" />
+          <ScalarProperty Name="O_Status" ColumnName="O_Status" />
+          <ScalarProperty Name="O_Total" ColumnName="O_Total" />
+          <ScalarProperty Name="O_User" ColumnName="O_User" />
+          <ScalarProperty Name="O_Date" ColumnName="O_Date" />
+          <ScalarProperty Name="O_OderID" ColumnName="O_OderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_Product">
+      <EntityTypeMapping TypeName="SellOTOP5929Model.View_Product">
+        <MappingFragment StoreEntitySet="View_Product">
+          <ScalarProperty Name="T_Name" ColumnName="T_Name" />
+          <ScalarProperty Name="T_TypeProID" ColumnName="T_TypeProID" />
+          <ScalarProperty Name="P_Type" ColumnName="P_Type" />
+          <ScalarProperty Name="P_Amout" ColumnName="P_Amout" />
+          <ScalarProperty Name="P_IMG" ColumnName="P_IMG" />
+          <ScalarProperty Name="P_Price" ColumnName="P_Price" />
+          <ScalarProperty Name="P_ProName" ColumnName="P_ProName" />
+          <ScalarProperty Name="P_ProductID" ColumnName="P_ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_User">
+      <EntityTypeMapping TypeName="SellOTOP5929Model.View_User">
+        <MappingFragment StoreEntitySet="View_User">
+          <ScalarProperty Name="R_Name" ColumnName="R_Name" />
+          <ScalarProperty Name="R_RoleID" ColumnName="R_RoleID" />
+          <ScalarProperty Name="U_Role" ColumnName="U_Role" />
+          <ScalarProperty Name="U_Zipcode" ColumnName="U_Zipcode" />
+          <ScalarProperty Name="U_Province" ColumnName="U_Province" />
+          <ScalarProperty Name="U_Amper" ColumnName="U_Amper" />
+          <ScalarProperty Name="U_Tampo" ColumnName="U_Tampo" />
+          <ScalarProperty Name="U_Address" ColumnName="U_Address" />
+          <ScalarProperty Name="U_Phone" ColumnName="U_Phone" />
+          <ScalarProperty Name="U_HBD" ColumnName="U_HBD" />
+          <ScalarProperty Name="U_LastName" ColumnName="U_LastName" />
+          <ScalarProperty Name="U_Name" ColumnName="U_Name" />
+          <ScalarProperty Name="T_TilName" ColumnName="T_TilName" />
+          <ScalarProperty Name="T_TItleID" ColumnName="T_TItleID" />
+          <ScalarProperty Name="U_Tilie" ColumnName="U_Tilie" />
+          <ScalarProperty Name="U_UserName" ColumnName="U_UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

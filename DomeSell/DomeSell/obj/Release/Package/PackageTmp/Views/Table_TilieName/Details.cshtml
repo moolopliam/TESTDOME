@@ -1,0 +1,27 @@
+﻿@model DomeSell.Models.Table_TilieName
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Table_TilieName</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.T_TilName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.T_TilName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.T_TItleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

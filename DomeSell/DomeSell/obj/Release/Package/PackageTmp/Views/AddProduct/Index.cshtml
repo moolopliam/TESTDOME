@@ -1,0 +1,75 @@
+﻿@model IEnumerable<DomeSell.Models.Table_AddProduct>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    if (TempData["action"] != null)
+    {
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div  class="alert alert-dismissible @TempData["action"].ToString()">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>แจ้งเตือน!</strong><a href="#" class="alert-link">@TempData["message"].ToString()</a>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">สินค้าเครื่องจักรสาน</div>
+    <div class="panel-body">
+        <p>
+            @Html.ActionLink("เพิ่มข้อมูล", "Create", null, new { @class = "btn btn-success" })
+        </p>
+        <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.A_amount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.A_date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Table_Product.P_ProName)
+                </th>
+                <th style="width: 40%"></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.A_amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.A_date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Table_Product.P_ProName)
+                    </td>
+                    <td style="text-align: center">
+                        @if (item.A_StatusAdd == 1)
+                        {
+                            @Html.ActionLink("ยืนยัน", "ChangeSta", null, new { id = item.A_AddProID }, new { @class = "btn btn-success" })<span></span>
+                            @Html.ActionLink("แก้ไขข้อมูล", "Edit", null, new { id = item.A_AddProID }, new { @class = "btn btn-warning" })<span></span>
+                            @Html.ActionLink("ลบข้อมูล", "Delete", null, new { id = item.A_AddProID }, new { @class = "btn btn-danger" })
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(".alert").delay(2000).slideUp(200, function() {
+            $(this).alert('close');
+        });
+    </script>
+}

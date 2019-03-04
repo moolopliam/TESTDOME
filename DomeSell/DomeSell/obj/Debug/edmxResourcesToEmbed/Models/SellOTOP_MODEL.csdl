@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SellOTOP5929Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SellOTOP5929Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Table_AddProduct" EntityType="SellOTOP5929Model.Table_AddProduct" />
+    <EntitySet Name="Table_Oder" EntityType="SellOTOP5929Model.Table_Oder" />
+    <EntitySet Name="Table_OderDetail" EntityType="SellOTOP5929Model.Table_OderDetail" />
+    <EntitySet Name="Table_Product" EntityType="SellOTOP5929Model.Table_Product" />
+    <EntitySet Name="Table_Role" EntityType="SellOTOP5929Model.Table_Role" />
+    <EntitySet Name="Table_StatusAdd" EntityType="SellOTOP5929Model.Table_StatusAdd" />
+    <EntitySet Name="Table_StatusBay" EntityType="SellOTOP5929Model.Table_StatusBay" />
+    <EntitySet Name="Table_TilieName" EntityType="SellOTOP5929Model.Table_TilieName" />
+    <EntitySet Name="Table_TypeProduct" EntityType="SellOTOP5929Model.Table_TypeProduct" />
+    <EntitySet Name="Table_User" EntityType="SellOTOP5929Model.Table_User" />
+    <AssociationSet Name="FK_Table_AddProduct_Table_Product" Association="SellOTOP5929Model.FK_Table_AddProduct_Table_Product">
+      <End Role="Table_Product" EntitySet="Table_Product" />
+      <End Role="Table_AddProduct" EntitySet="Table_AddProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_AddProduct_Table_StatusAdd" Association="SellOTOP5929Model.FK_Table_AddProduct_Table_StatusAdd">
+      <End Role="Table_StatusAdd" EntitySet="Table_StatusAdd" />
+      <End Role="Table_AddProduct" EntitySet="Table_AddProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Oder_Table_StatusBay" Association="SellOTOP5929Model.FK_Table_Oder_Table_StatusBay">
+      <End Role="Table_StatusBay" EntitySet="Table_StatusBay" />
+      <End Role="Table_Oder" EntitySet="Table_Oder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Oder_Table_User" Association="SellOTOP5929Model.FK_Table_Oder_Table_User">
+      <End Role="Table_User" EntitySet="Table_User" />
+      <End Role="Table_Oder" EntitySet="Table_Oder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_OderDetail_Table_Oder" Association="SellOTOP5929Model.FK_Table_OderDetail_Table_Oder">
+      <End Role="Table_Oder" EntitySet="Table_Oder" />
+      <End Role="Table_OderDetail" EntitySet="Table_OderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_OderDetail_Table_Product" Association="SellOTOP5929Model.FK_Table_OderDetail_Table_Product">
+      <End Role="Table_Product" EntitySet="Table_Product" />
+      <End Role="Table_OderDetail" EntitySet="Table_OderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_Product_Table_TypeProduct" Association="SellOTOP5929Model.FK_Table_Product_Table_TypeProduct">
+      <End Role="Table_TypeProduct" EntitySet="Table_TypeProduct" />
+      <End Role="Table_Product" EntitySet="Table_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_User_Table_Role" Association="SellOTOP5929Model.FK_Table_User_Table_Role">
+      <End Role="Table_Role" EntitySet="Table_Role" />
+      <End Role="Table_User" EntitySet="Table_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_User_Table_TilieName" Association="SellOTOP5929Model.FK_Table_User_Table_TilieName">
+      <End Role="Table_TilieName" EntitySet="Table_TilieName" />
+      <End Role="Table_User" EntitySet="Table_User" />
+    </AssociationSet>
+    <EntitySet Name="View_AddPro" EntityType="SellOTOP5929Model.View_AddPro" />
+    <EntitySet Name="View_BayOr" EntityType="SellOTOP5929Model.View_BayOr" />
+    <EntitySet Name="View_Product" EntityType="SellOTOP5929Model.View_Product" />
+    <EntitySet Name="View_User" EntityType="SellOTOP5929Model.View_User" />
+  </EntityContainer>
+  <EntityType Name="Table_AddProduct">
+    <Key>
+      <PropertyRef Name="A_AddProID" />
+    </Key>
+    <Property Name="A_AddProID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="A_Product" Type="Int32" />
+    <Property Name="A_amount" Type="Int32" />
+    <Property Name="A_date" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="A_StatusAdd" Type="Int32" />
+    <NavigationProperty Name="Table_Product" Relationship="SellOTOP5929Model.FK_Table_AddProduct_Table_Product" FromRole="Table_AddProduct" ToRole="Table_Product" />
+    <NavigationProperty Name="Table_StatusAdd" Relationship="SellOTOP5929Model.FK_Table_AddProduct_Table_StatusAdd" FromRole="Table_AddProduct" ToRole="Table_StatusAdd" />
+  </EntityType>
+  <EntityType Name="Table_Oder">
+    <Key>
+      <PropertyRef Name="O_OderID" />
+    </Key>
+    <Property Name="O_OderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="O_Date" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="O_User" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="O_Total" Type="Int32" />
+    <Property Name="O_Status" Type="Int32" />
+    <Property Name="O_IMGPAY" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Table_StatusBay" Relationship="SellOTOP5929Model.FK_Table_Oder_Table_StatusBay" FromRole="Table_Oder" ToRole="Table_StatusBay" />
+    <NavigationProperty Name="Table_User" Relationship="SellOTOP5929Model.FK_Table_Oder_Table_User" FromRole="Table_Oder" ToRole="Table_User" />
+    <NavigationProperty Name="Table_OderDetail" Relationship="SellOTOP5929Model.FK_Table_OderDetail_Table_Oder" FromRole="Table_Oder" ToRole="Table_OderDetail" />
+  </EntityType>
+  <EntityType Name="Table_OderDetail">
+    <Key>
+      <PropertyRef Name="OD_OrderDetail" />
+    </Key>
+    <Property Name="OD_OrderDetail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OD_Oder" Type="Int32" />
+    <Property Name="OD_Amount" Type="Int32" />
+    <Property Name="OD_Product" Type="Int32" />
+    <NavigationProperty Name="Table_Oder" Relationship="SellOTOP5929Model.FK_Table_OderDetail_Table_Oder" FromRole="Table_OderDetail" ToRole="Table_Oder" />
+    <NavigationProperty Name="Table_Product" Relationship="SellOTOP5929Model.FK_Table_OderDetail_Table_Product" FromRole="Table_OderDetail" ToRole="Table_Product" />
+  </EntityType>
+  <EntityType Name="Table_Product">
+    <Key>
+      <PropertyRef Name="P_ProductID" />
+    </Key>
+    <Property Name="P_ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="P_ProName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="P_Price" Type="Int32" />
+    <Property Name="P_IMG" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="P_Amout" Type="Int32" />
+    <Property Name="P_Type" Type="Int32" />
+    <NavigationProperty Name="Table_AddProduct" Relationship="SellOTOP5929Model.FK_Table_AddProduct_Table_Product" FromRole="Table_Product" ToRole="Table_AddProduct" />
+    <NavigationProperty Name="Table_OderDetail" Relationship="SellOTOP5929Model.FK_Table_OderDetail_Table_Product" FromRole="Table_Product" ToRole="Table_OderDetail" />
+    <NavigationProperty Name="Table_TypeProduct" Relationship="SellOTOP5929Model.FK_Table_Product_Table_TypeProduct" FromRole="Table_Product" ToRole="Table_TypeProduct" />
+  </EntityType>
+  <EntityType Name="Table_Role">
+    <Key>
+      <PropertyRef Name="R_RoleID" />
+    </Key>
+    <Property Name="R_RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="R_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Table_User" Relationship="SellOTOP5929Model.FK_Table_User_Table_Role" FromRole="Table_Role" ToRole="Table_User" />
+  </EntityType>
+  <EntityType Name="Table_StatusAdd">
+    <Key>
+      <PropertyRef Name="SA_SatatusID" />
+    </Key>
+    <Property Name="SA_SatatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SA_StaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Table_AddProduct" Relationship="SellOTOP5929Model.FK_Table_AddProduct_Table_StatusAdd" FromRole="Table_StatusAdd" ToRole="Table_AddProduct" />
+  </EntityType>
+  <EntityType Name="Table_StatusBay">
+    <Key>
+      <PropertyRef Name="S_StatusID" />
+    </Key>
+    <Property Name="S_StatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="S_StaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Table_Oder" Relationship="SellOTOP5929Model.FK_Table_Oder_Table_StatusBay" FromRole="Table_StatusBay" ToRole="Table_Oder" />
+  </EntityType>
+  <EntityType Name="Table_TilieName">
+    <Key>
+      <PropertyRef Name="T_TItleID" />
+    </Key>
+    <Property Name="T_TItleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="T_TilName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Table_User" Relationship="SellOTOP5929Model.FK_Table_User_Table_TilieName" FromRole="Table_TilieName" ToRole="Table_User" />
+  </EntityType>
+  <EntityType Name="Table_TypeProduct">
+    <Key>
+      <PropertyRef Name="T_TypeProID" />
+    </Key>
+    <Property Name="T_TypeProID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="T_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Table_Product" Relationship="SellOTOP5929Model.FK_Table_Product_Table_TypeProduct" FromRole="Table_TypeProduct" ToRole="Table_Product" />
+  </EntityType>
+  <EntityType Name="Table_User">
+    <Key>
+      <PropertyRef Name="U_UserName" />
+    </Key>
+    <Property Name="U_UserName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="U_PassWord" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="U_Tilie" Type="Int32" />
+    <Property Name="U_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="U_LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="U_HBD" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="U_Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="U_Address" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="U_Tampo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="U_Amper" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="U_Province" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="U_Zipcode" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="U_Role" Type="Int32" />
+    <Property Name="U_IMGUSER" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Table_Oder" Relationship="SellOTOP5929Model.FK_Table_Oder_Table_User" FromRole="Table_User" ToRole="Table_Oder" />
+    <NavigationProperty Name="Table_Role" Relationship="SellOTOP5929Model.FK_Table_User_Table_Role" FromRole="Table_User" ToRole="Table_Role" />
+    <NavigationProperty Name="Table_TilieName" Relationship="SellOTOP5929Model.FK_Table_User_Table_TilieName" FromRole="Table_User" ToRole="Table_TilieName" />
+  </EntityType>
+  <Association Name="FK_Table_AddProduct_Table_Product">
+    <End Type="SellOTOP5929Model.Table_Product" Role="Table_Product" Multiplicity="0..1" />
+    <End Type="SellOTOP5929Model.Table_AddProduct" Role="Table_AddProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Product">
+        <PropertyRef Name="P_ProductID" />
+      </Principal>
+      <Dependent Role="Table_AddProduct">
+        <PropertyRef Name="A_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_AddProduct_Table_StatusAdd">
+    <End Type="SellOTOP5929Model.Table_StatusAdd" Role="Table_StatusAdd" Multiplicity="0..1" />
+    <End Type="SellOTOP5929Model.Table_AddProduct" Role="Table_AddProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_StatusAdd">
+        <PropertyRef Name="SA_SatatusID" />
+      </Principal>
+      <Dependent Role="Table_AddProduct">
+        <PropertyRef Name="A_StatusAdd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Oder_Table_StatusBay">
+    <End Type="SellOTOP5929Model.Table_StatusBay" Role="Table_StatusBay" Multiplicity="0..1" />
+    <End Type="SellOTOP5929Model.Table_Oder" Role="Table_Oder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_StatusBay">
+        <PropertyRef Name="S_StatusID" />
+      </Principal>
+      <Dependent Role="Table_Oder">
+        <PropertyRef Name="O_Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Oder_Table_User">
+    <End Type="SellOTOP5929Model.Table_User" Role="Table_User" Multiplicity="0..1" />
+    <End Type="SellOTOP5929Model.Table_Oder" Role="Table_Oder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_User">
+        <PropertyRef Name="U_UserName" />
+      </Principal>
+      <Dependent Role="Table_Oder">
+        <PropertyRef Name="O_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_OderDetail_Table_Oder">
+    <End Type="SellOTOP5929Model.Table_Oder" Role="Table_Oder" Multiplicity="0..1" />
+    <End Type="SellOTOP5929Model.Table_OderDetail" Role="Table_OderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Oder">
+        <PropertyRef Name="O_OderID" />
+      </Principal>
+      <Dependent Role="Table_OderDetail">
+        <PropertyRef Name="OD_Oder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_OderDetail_Table_Product">
+    <End Type="SellOTOP5929Model.Table_Product" Role="Table_Product" Multiplicity="0..1" />
+    <End Type="SellOTOP5929Model.Table_OderDetail" Role="Table_OderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Product">
+        <PropertyRef Name="P_ProductID" />
+      </Principal>
+      <Dependent Role="Table_OderDetail">
+        <PropertyRef Name="OD_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_Product_Table_TypeProduct">
+    <End Type="SellOTOP5929Model.Table_TypeProduct" Role="Table_TypeProduct" Multiplicity="0..1" />
+    <End Type="SellOTOP5929Model.Table_Product" Role="Table_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_TypeProduct">
+        <PropertyRef Name="T_TypeProID" />
+      </Principal>
+      <Dependent Role="Table_Product">
+        <PropertyRef Name="P_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_User_Table_Role">
+    <End Type="SellOTOP5929Model.Table_Role" Role="Table_Role" Multiplicity="0..1" />
+    <End Type="SellOTOP5929Model.Table_User" Role="Table_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_Role">
+        <PropertyRef Name="R_RoleID" />
+      </Principal>
+      <Dependent Role="Table_User">
+        <PropertyRef Name="U_Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_User_Table_TilieName">
+    <End Type="SellOTOP5929Model.Table_TilieName" Role="Table_TilieName" Multiplicity="0..1" />
+    <End Type="SellOTOP5929Model.Table_User" Role="Table_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table_TilieName">
+        <PropertyRef Name="T_TItleID" />
+      </Principal>
+      <Dependent Role="Table_User">
+        <PropertyRef Name="U_Tilie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="View_AddPro">
+    <Key>
+      <PropertyRef Name="A_AddProID" />
+      <PropertyRef Name="P_ProductID" />
+    </Key>
+    <Property Name="A_AddProID" Type="Int32" Nullable="false" />
+    <Property Name="A_Product" Type="Int32" />
+    <Property Name="P_ProductID" Type="Int32" Nullable="false" />
+    <Property Name="P_ProName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="A_amount" Type="Int32" />
+    <Property Name="A_date" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="A_StatusAdd" Type="Int32" />
+    <Property Name="P_Price" Type="Int32" />
+  </EntityType>
+  <EntityType Name="View_BayOr">
+    <Key>
+      <PropertyRef Name="O_OderID" />
+      <PropertyRef Name="OD_OrderDetail" />
+      <PropertyRef Name="P_ProductID" />
+    </Key>
+    <Property Name="O_OderID" Type="Int32" Nullable="false" />
+    <Property Name="O_Date" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="O_User" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="O_Total" Type="Int32" />
+    <Property Name="O_Status" Type="Int32" />
+    <Property Name="OD_OrderDetail" Type="Int32" Nullable="false" />
+    <Property Name="OD_Oder" Type="Int32" />
+    <Property Name="OD_Amount" Type="Int32" />
+    <Property Name="OD_Product" Type="Int32" />
+    <Property Name="P_ProductID" Type="Int32" Nullable="false" />
+    <Property Name="P_ProName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="P_Price" Type="Int32" />
+  </EntityType>
+  <EntityType Name="View_Product">
+    <Key>
+      <PropertyRef Name="P_ProductID" />
+      <PropertyRef Name="T_TypeProID" />
+    </Key>
+    <Property Name="P_ProductID" Type="Int32" Nullable="false" />
+    <Property Name="P_ProName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="P_Price" Type="Int32" />
+    <Property Name="P_IMG" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="P_Amout" Type="Int32" />
+    <Property Name="P_Type" Type="Int32" />
+    <Property Name="T_TypeProID" Type="Int32" Nullable="false" />
+    <Property Name="T_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="View_User">
+    <Key>
+      <PropertyRef Name="U_UserName" />
+      <PropertyRef Name="T_TItleID" />
+      <PropertyRef Name="R_RoleID" />
+    </Key>
+    <Property Name="U_UserName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="U_Tilie" Type="Int32" />
+    <Property Name="T_TItleID" Type="Int32" Nullable="false" />
+    <Property Name="T_TilName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="U_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="U_LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="U_HBD" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="U_Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="U_Address" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="U_Tampo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="U_Amper" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="U_Province" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="U_Zipcode" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="U_Role" Type="Int32" />
+    <Property Name="R_RoleID" Type="Int32" Nullable="false" />
+    <Property Name="R_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

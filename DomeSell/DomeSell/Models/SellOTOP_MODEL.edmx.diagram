@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1f53da57546941e7b6b8718c9508101c" Name="Diagram1">
+        <EntityTypeShape EntityType="SellOTOP5929Model.Table_AddProduct" Width="1.5" PointX="7.5" PointY="11.375" />
+        <EntityTypeShape EntityType="SellOTOP5929Model.Table_Oder" Width="1.5" PointX="5.25" PointY="3.125" />
+        <EntityTypeShape EntityType="SellOTOP5929Model.Table_OderDetail" Width="1.5" PointX="7.5" PointY="3.5" />
+        <EntityTypeShape EntityType="SellOTOP5929Model.Table_Product" Width="1.5" PointX="5.25" PointY="11.125" />
+        <EntityTypeShape EntityType="SellOTOP5929Model.Table_Role" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SellOTOP5929Model.Table_StatusAdd" Width="1.5" PointX="5.25" PointY="8.75" />
+        <EntityTypeShape EntityType="SellOTOP5929Model.Table_StatusBay" Width="1.5" PointX="3" PointY="8.75" />
+        <EntityTypeShape EntityType="SellOTOP5929Model.Table_TilieName" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SellOTOP5929Model.Table_TypeProduct" Width="1.5" PointX="3" PointY="11.75" />
+        <EntityTypeShape EntityType="SellOTOP5929Model.Table_User" Width="1.5" PointX="3" PointY="2.375" />
+        <AssociationConnector Association="SellOTOP5929Model.FK_Table_AddProduct_Table_Product" />
+        <AssociationConnector Association="SellOTOP5929Model.FK_Table_AddProduct_Table_StatusAdd" />
+        <AssociationConnector Association="SellOTOP5929Model.FK_Table_Oder_Table_StatusBay" />
+        <AssociationConnector Association="SellOTOP5929Model.FK_Table_Oder_Table_User" />
+        <AssociationConnector Association="SellOTOP5929Model.FK_Table_OderDetail_Table_Oder" />
+        <AssociationConnector Association="SellOTOP5929Model.FK_Table_OderDetail_Table_Product" />
+        <AssociationConnector Association="SellOTOP5929Model.FK_Table_Product_Table_TypeProduct" />
+        <AssociationConnector Association="SellOTOP5929Model.FK_Table_User_Table_Role" />
+        <AssociationConnector Association="SellOTOP5929Model.FK_Table_User_Table_TilieName" />
+        <EntityTypeShape EntityType="SellOTOP5929Model.View_AddPro" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="SellOTOP5929Model.View_BayOr" Width="1.5" PointX="9.375" PointY="6.75" />
+        <EntityTypeShape EntityType="SellOTOP5929Model.View_Product" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SellOTOP5929Model.View_User" Width="1.5" PointX="11.375" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

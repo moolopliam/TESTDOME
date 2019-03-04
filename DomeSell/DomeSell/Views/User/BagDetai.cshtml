@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DomeSell.Models.Table_OderDetail>
+
+@{
+    ViewBag.Title = "BagDetai";
+    Layout = "~/Views/Shared/_User.cshtml";
+    if (Session["Username"] == null)
+    {
+        <script type="text/javascript">
+            window.location.href = '@Url.Action("Index","User")';
+        </script>
+    }
+}
+
+<h2>BagDetai</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OD_Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Table_Oder.O_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Table_Product.P_ProName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OD_Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Table_Oder.O_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Table_Product.P_ProName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OD_OrderDetail }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OD_OrderDetail }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OD_OrderDetail })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,129 @@
+﻿@model DomeSell.Models.Table_User
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Table_User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.U_PassWord)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_PassWord)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_HBD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_HBD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_Tampo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_Tampo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_Amper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_Amper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_Province)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_Province)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_Zipcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_Zipcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_IMGUSER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_IMGUSER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Table_Role.R_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Table_Role.R_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Table_TilieName.T_TilName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Table_TilieName.T_TilName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
